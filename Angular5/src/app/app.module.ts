@@ -9,12 +9,16 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {LoginComponent} from './security/login/login.component';
+
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'book'},
   {path: 'book', component: BookComponent },
   {path: 'book-create', component: BookCreateComponent },
   {path: 'book-edit/:id', component: BookEditComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
@@ -22,7 +26,8 @@ const routes: Routes = [
     AppComponent,
     BookComponent,
     BookCreateComponent,
-    BookEditComponent
+    BookEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

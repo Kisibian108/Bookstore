@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/book")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/public/book")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BookRestController {
 
     @Autowired
@@ -24,7 +24,6 @@ public class BookRestController {
     @Autowired
     ICategoryService categoryService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/page")
     public ResponseEntity<Page<Book>> listAll(@PageableDefault(5) Pageable pageable,
                                               @RequestParam Optional<String> nameSearch) {
