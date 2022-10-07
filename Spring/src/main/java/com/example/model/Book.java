@@ -15,6 +15,11 @@ public class Book {
     private String yearPublic;
     private String author;
     private String publisher;
+    private String img;
+    private double price;
+    private double discount;
+    private double rate;
+    private int star;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
@@ -23,7 +28,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String idProduct, String name, int totalPages, String size, String yearPublic, String author, String publisher, Category category) {
+    public Book(int id, String idProduct, String name, int totalPages, String size, String yearPublic, String author, String publisher, String img, double price, double discount, double rate, int star, Category category) {
         this.id = id;
         this.idProduct = idProduct;
         this.name = name;
@@ -32,6 +37,11 @@ public class Book {
         this.yearPublic = yearPublic;
         this.author = author;
         this.publisher = publisher;
+        this.img = img;
+        this.price = price;
+        this.discount = discount;
+        this.rate = rate;
+        this.star = star;
         this.category = category;
     }
 
@@ -97,6 +107,46 @@ public class Book {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
     }
 
     public Category getCategory() {

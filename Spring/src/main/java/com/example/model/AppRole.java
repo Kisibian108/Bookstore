@@ -29,5 +29,4 @@ public class AppRole {
     @JsonIgnore
     private List<UserRole> userRoles;
 
-
 }

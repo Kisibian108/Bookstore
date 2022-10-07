@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/public/category")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoryRestController {
 
     @Autowired
     ICategoryService categoryService;
 
     @GetMapping("/list")
-    public ResponseEntity<List<Category>> listPatient() {
+    public ResponseEntity<List<Category>> listCategory() {
         List<Category> categories = categoryService.findAll();
         if (categories.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/public/book")
+@RequestMapping("/api/public")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BookRestController {
 
@@ -25,7 +25,7 @@ public class BookRestController {
     ICategoryService categoryService;
 
     @GetMapping("/page")
-    public ResponseEntity<Page<Book>> listAll(@PageableDefault(5) Pageable pageable,
+    public ResponseEntity<Page<Book>> listAll(@PageableDefault(8) Pageable pageable,
                                               @RequestParam Optional<String> nameSearch) {
         String name = nameSearch.orElse("");
         if (name.equals("null")) {

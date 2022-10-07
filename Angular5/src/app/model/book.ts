@@ -9,5 +9,10 @@ export interface Book {
   yearPublic?: string;
   author?: string;
   publisher?: string;
+  img?: string;
+  price?: number;
+  discount?: number;
+  rate?: number;
+  star?: number;
   category?: Category;
 }

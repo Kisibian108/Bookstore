@@ -3,6 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Book} from "../model/book";
+import {Category} from "../model/category";
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -28,5 +29,9 @@ export class BookService {
   getAllBook(page: number, name: string, size: number ) {
     // tslint:disable-next-line:max-line-length
     return this.httpClient.get<any>(API_URL + '/page?page=' + page + '&nameSearch=' + name + '&size=' + size);
+  }
+
+  findAllCategory(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(API_URL + '/category/list');
   }
 }

@@ -51,12 +51,10 @@ public class UserService implements IUserService {
         userRepository.saveNewPassword(password, name);
     }
 
-
     public void sendVerificationEmailForResetPassWord(String userName, String email) throws UnsupportedEncodingException, javax.mail.MessagingException {
         String subject = "Hãy xác thực email của bạn";
         String mailContent = "";
         String confirmUrl = "http://localhost:4200/verify-reset-password/" + userName;
-
 
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, "UTF-8");

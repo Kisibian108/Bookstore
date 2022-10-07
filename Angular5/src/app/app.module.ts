@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {LoginComponent} from './security/login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,9 @@ const routes: Routes = [
     BookComponent,
     BookCreateComponent,
     BookEditComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
