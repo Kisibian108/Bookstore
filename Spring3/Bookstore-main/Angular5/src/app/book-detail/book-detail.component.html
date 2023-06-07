@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="a">
+    <div class="col-4">
+      <img [src]="img" width="350px" height="400px">
+    </div>
+    <div class="col-4" style="margin-top: 10px" >
+      <ul>
+        <li>
+          <span class="form-label">Mã sách:{{idProduct}} </span>
+        </li>
+        <li>
+          <span class="form-label">Tên sách:{{name}}</span>
+        </li>
+        <li>
+          <span class="form-label">Kích thước:{{size}}</span>
+        </li>
+        <li>
+          <span class="form-label">Tác giả:{{author}}</span>
+        </li>
+        <li>
+          <span class="form-label">Năm phát hành:{{yearPublic}}</span>
+        </li>
+        <li>
+          <span class="form-label">Nhà xuất bản:{{publisher}} </span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <span>Giá sách: {{price}} (Đã có VAT)</span> <br>
+<!--      <button (click)="addToCart(book)" class="mt-2 btn btn-primary">Thêm vào giỏ hàng</button>-->
+    </div>
+  </div>
+  <div class="b mt-2">
+    <h3 class="center">Giới thiệu sách</h3>
+    <div>{{content}}</div>
+  </div>
+</div>
