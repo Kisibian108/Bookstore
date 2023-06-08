@@ -15,7 +15,7 @@ import {Observable, Subscription} from "rxjs";
 export class BookDetailComponent implements OnInit {
 
   id = 0;
-  book: Subscription;
+  book: Book;
   CartItems: Book[] = [];
   idProduct: string;
   name: string;
@@ -40,9 +40,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.book = this.bookService.findById(this.id).subscribe(book => {
-     console.log(book);
-    });
   }
 
   getDanhSach(id: number) {
@@ -57,7 +54,7 @@ export class BookDetailComponent implements OnInit {
       this.img = book.img;
       this.content = book.content;
       this.price = book.price;
-      this.book = book.content;
+      this.book = book;
     });
   }
 

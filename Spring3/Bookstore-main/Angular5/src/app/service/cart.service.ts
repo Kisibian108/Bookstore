@@ -34,6 +34,7 @@ export class CartService {
       this.cartSubject.next(this.cartItems);
       this.itemCountSubject.next(this.cartItems.length);
     }
+    this.calculateTotal();
     this.updateLocalStorage();
   }
 
@@ -41,8 +42,7 @@ export class CartService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.cartItems));
   }
 
-  removeFromCart(index: number): void {
-    this.cartItems.splice(index, 1);
-    this.updateLocalStorage();
+  calculateTotal(): number {
+    return this.cartItems.reduce((total, item ) => total + (item.price * item.quantity), 0);
   }
 }

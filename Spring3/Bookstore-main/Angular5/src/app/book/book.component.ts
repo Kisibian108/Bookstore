@@ -68,11 +68,7 @@ export class BookComponent implements OnInit {
           this.displayPagination = 'none';
         } else {
           this.number = data?.number;
-          this.pageSize = data?.size;
-          this.numberOfElement = data?.numberOfElements;
           this.books = data.content;
-          this.totalElements = data?.totalElements;
-          this.totalPage = new Array(data?.totalPages);
         }
       }, error => {
         this.books = null;
