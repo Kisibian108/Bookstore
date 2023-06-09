@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Book} from '../model/book';
 import {Router} from '@angular/router';
@@ -6,6 +6,7 @@ import {ToastrService} from 'ngx-toastr';
 import {Title} from '@angular/platform-browser';
 import {BookService} from '../service/book.service';
 import {CartService} from "../service/cart.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-book',
@@ -27,18 +28,12 @@ export class BookComponent implements OnInit {
   previousPageClass: any;
   nextPageClass: any;
   dateInSearch = '';
-  codeSearch = '';
+  nameSearch = '';
   check: string[] = [];
   editId: string;
   checkNext: boolean;
-  totalPage: Array<number>;
   indexPagination = 0;
-  pages: Array<number>;
-  previousPageStyle = 'inline-block';
-  totalElements = 0;
   pageSize = 8;
-  displayPagination = 'inline-block';
-  numberOfElement = 0;
   itemCount = 0;
   quantity = 0;
 
@@ -56,18 +51,15 @@ export class BookComponent implements OnInit {
   ngOnInit(): void {
     this.getList();
     this.searchForm = new FormGroup({
-      codeSearch: new FormControl(''),
+      nameSearch: new FormControl(''),
     });
   }
 
   getList() {
-    this.bookService.getAllBook(this.indexPagination, this.codeSearch, this.pageSize).subscribe((data?: any) => {
+    this.bookService.getAllBook(this.indexPagination, this.nameSearch).subscribe((data?: any) => {
         if (data === null) {
-          this.totalPage = new Array(0);
           this.books = [];
-          this.displayPagination = 'none';
         } else {
-          this.number = data?.number;
           this.books = data.content;
         }
       }, error => {
@@ -81,39 +73,33 @@ export class BookComponent implements OnInit {
     return format.test(codeSearch);
   }
 
-  search() {
-    this.codeSearch = this.searchForm.value.content;
+  // search() {
+  //   this.nameSearch = this.searchForm.value.content;
+  //   if (this.checkRegex(this.nameSearch)) {
+  //     this.books = [];
+  //     this.toast.warning('Không được nhập kí tự đặc biệt.', 'Chú ý');
+  //   } else {
+  //     this.ngOnInit();
+  //   }
+  // }
 
-    if (this.checkRegex(this.codeSearch)) {
-      this.indexPagination = 0;
-      this.totalPage = new Array(0);
+  searchBook(): void {
+    if (this.checkRegex(this.nameSearch)) {
       this.books = [];
-      this.displayPagination = 'none';
       this.toast.warning('Không được nhập kí tự đặc biệt.', 'Chú ý');
     } else {
-      this.indexPagination = 0;
-      this.displayPagination = 'inline-block';
-      this.ngOnInit();
+      this.bookService.getAllBook(this.indexPagination, this.nameSearch).subscribe(response => {
+          this.books = response.content;
+        },
+        error => {
+          console.log('Error', error);
+        });
     }
   }
 
-  searchBook() {
-    this.codeSearch = this.searchForm.value.codeSearch;
-    if (this.checkRegex(this.searchForm.value.codeSearch)) {
-      this.indexPagination = 0;
-      this.totalPage = new Array(0);
-      this.books = [];
-      this.displayPagination = 'none';
-      this.toast.warning('Không được nhập kí tự đặc biệt.', 'Chú ý');
-    } else {
-      this.indexPagination = 0;
-      this.displayPagination = 'inline-block';
-      this.getList();
-    }
-  }
   deleteBook(id: number) {
     this.bookService.delete(id).subscribe(() => {
-      this.router.navigate(['/book']).then(r => this.ngOnInit())  ;
+      this.router.navigate(['/book']).then(r => this.ngOnInit());
     }, e => {
       console.log(e);
     });

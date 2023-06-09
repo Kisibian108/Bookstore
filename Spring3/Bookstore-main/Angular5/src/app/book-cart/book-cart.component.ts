@@ -55,6 +55,7 @@ export class BookCartComponent implements OnInit {
     if (index !== -1) {
       this.cartItems.splice(index, 1);
     }
+    this.updateTotalPrice();
     this.updateLocalStorage();
   }
 

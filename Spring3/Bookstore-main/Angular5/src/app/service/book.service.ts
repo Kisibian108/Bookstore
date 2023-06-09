@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -14,6 +14,7 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) {
   }
+
   createBook(book: Book): Observable<Book> {
     return this.httpClient.post<Book>(API_URL + '/create', book);
   }
@@ -26,9 +27,8 @@ export class BookService {
     return this.httpClient.delete<Book>(`${API_URL}/${id}`);
   }
 
-  getAllBook(page: number, name: string, size: number ) {
-    // tslint:disable-next-line:max-line-length
-    return this.httpClient.get<any>(API_URL + '/page?page=' + page + '&nameSearch=' + name + '&size=' + size);
+  getAllBook(page: number, name: string) {
+    return this.httpClient.get<any>(API_URL + '/page?page=' + page + '&nameSearch=' + name);
   }
 
   findAllCategory(): Observable<Category[]> {

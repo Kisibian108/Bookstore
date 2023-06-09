@@ -106,20 +106,34 @@
 
 <!--version2-->
 <!-- Products Start-->
+
 <div class="container-fluid pt-5 pb-3">
+  <div class="row" style="margin-left: 50px">
+    <div class="col-8">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="nameSearch" placeholder="Tìm sách"
+               aria-label="Recipient's username"
+               aria-describedby="button-addon2">
+        <button class="btn btn-outline-dark" (click)="searchBook()" type="button" id="button-addon2"><i
+          class="fa fa-search"></i></button>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
   <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
     class="bg-secondary pr-3">Sách nổi bật</span></h2>
   <div class="row px-xl-5">
     <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let book of books">
       <div class="product-item bg-light mb-4">
         <div class="product-img position-relative overflow-hidden">
-          <img class="img-fluid w-100" [src]="book.img"  alt="">
+          <img class="img-fluid w-100" [src]="book.img" alt="">
           <div class="product-action">
             <a class="btn btn-outline-dark btn-square" (click)="addToCart(book)"><i class="fa fa-shopping-cart"></i></a>
             <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-            <a class="btn btn-outline-dark btn-square" href="" [routerLink]="['/book-detail', book.id]"><i class="fa fa-search"></i></a>
-<!--            <td><a [routerLink]="['/medical-edit',item.id]" role="button" class="btn btn-warning">Edit</a></td>-->
+            <a class="btn btn-outline-dark btn-square" href="" [routerLink]="['/book-detail', book.id]"><i
+              class="fa fa-search"></i></a>
+            <!--            <td><a [routerLink]="['/medical-edit',item.id]" role="button" class="btn btn-warning">Edit</a></td>-->
           </div>
         </div>
         <div class="text-center py-4">
