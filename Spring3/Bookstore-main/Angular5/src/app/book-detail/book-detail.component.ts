@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {BookService} from '../service/book.service';
 import {Book} from '../model/book';
-import {BookCartComponent} from '../book-cart/book-cart.component';
 import {CartService} from "../service/cart.service";
-import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-book-detail',
@@ -16,7 +13,6 @@ export class BookDetailComponent implements OnInit {
 
   id = 0;
   book: Book;
-  CartItems: Book[] = [];
   idProduct: string;
   name: string;
   size: string;
@@ -33,7 +29,6 @@ export class BookDetailComponent implements OnInit {
               private router: Router,
   ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      // @ts-ignore
       this.id = +paramMap.get('id');
       this.getDanhSach(this.id);
     });

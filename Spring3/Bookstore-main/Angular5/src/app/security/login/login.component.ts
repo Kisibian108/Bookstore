@@ -67,7 +67,8 @@ export class LoginComponent implements OnInit {
       this.authService.isLoggedIn = false;
       this.toastr.error('Sai tên đăng nhập hoặc mật khẩu hoặc tài khoản chưa được kích hoạt', 'Đăng nhập thất bại: ', {
         timeOut: 3000,
-        extendedTimeOut: 1500
+        extendedTimeOut: 1500,
+        toastClass: 'toast-custom'
       });
     });
   }

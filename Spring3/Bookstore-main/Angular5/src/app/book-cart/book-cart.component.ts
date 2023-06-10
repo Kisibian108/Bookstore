@@ -43,7 +43,6 @@ export class BookCartComponent implements OnInit {
     book.quantity++;
     this.updateTotalPrice();
     this.updateLocalStorage();
-
   }
 
   updateLocalStorage(): void {
@@ -66,6 +65,4 @@ export class BookCartComponent implements OnInit {
   updateTotalPrice(): void {
     this.totalPrice = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
-
-
 }

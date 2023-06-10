@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
 import {Book} from '../model/book';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {Title} from '@angular/platform-browser';
 import {BookService} from '../service/book.service';
 import {CartService} from "../service/cart.service";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-book',
@@ -17,21 +15,9 @@ export class BookComponent implements OnInit {
   p = 0;
   books: Book[] = [];
   name: string;
-  searchForm: FormGroup;
-  totalPages: number;
   number: number;
-  countTotalPages: number[];
-  idDelete: number;
-  formCheckBox: FormGroup;
-  clss: string;
   content: string;
-  previousPageClass: any;
-  nextPageClass: any;
-  dateInSearch = '';
   nameSearch = '';
-  check: string[] = [];
-  editId: string;
-  checkNext: boolean;
   indexPagination = 0;
   pageSize = 8;
   itemCount = 0;
@@ -50,9 +36,6 @@ export class BookComponent implements OnInit {
 
   ngOnInit(): void {
     this.getList();
-    this.searchForm = new FormGroup({
-      nameSearch: new FormControl(''),
-    });
   }
 
   getList() {
@@ -72,16 +55,6 @@ export class BookComponent implements OnInit {
     const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
     return format.test(codeSearch);
   }
-
-  // search() {
-  //   this.nameSearch = this.searchForm.value.content;
-  //   if (this.checkRegex(this.nameSearch)) {
-  //     this.books = [];
-  //     this.toast.warning('Không được nhập kí tự đặc biệt.', 'Chú ý');
-  //   } else {
-  //     this.ngOnInit();
-  //   }
-  // }
 
   searchBook(): void {
     if (this.checkRegex(this.nameSearch)) {

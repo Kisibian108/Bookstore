@@ -51,7 +51,9 @@ const routes: Routes = [
     ToastrModule.forRoot({
       timeOut: 1000,
       progressBar: true,
-      progressAnimation: 'increasing',
+      positionClass: 'toast-top-right',
+      toastClass: 'toast-custom',
+      // progressAnimation: 'increasing',
       preventDuplicates: true
     })
   ],
