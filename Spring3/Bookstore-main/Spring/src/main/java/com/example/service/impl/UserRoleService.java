@@ -19,7 +19,7 @@ public class UserRoleService implements IUserRoleService {
 
     /**
      * @return list UserRole (test list)
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -30,7 +30,7 @@ public class UserRoleService implements IUserRoleService {
 
     /**
      * @param userRole
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 

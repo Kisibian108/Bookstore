@@ -26,7 +26,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private JwtTokenUtil jwtTokenUtil;
 
     /**
-     * Created by: SangNH
+     * Created by: LamNT
      * Date created: 08/09/2022
      * Function: For any incoming request this Filter class gets executed
      * @param request, response, filterChain

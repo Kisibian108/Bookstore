@@ -16,7 +16,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
     /**
-     * Create by SangNH
+     * Create by LamNT
      * Date: 08/09/2022
      * query: search by name
      *
@@ -34,7 +34,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
     /**
      * @param id function deleteUser
-     * @Creator HungNQ
+     * @Creator LamNT
      * @Date 12/09/2022
      */
     @Transactional
@@ -45,7 +45,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
     /**
      * @return list User
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -57,7 +57,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
      * @param password
      * @param email
      * @return save new User
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
     @Modifying
@@ -68,7 +68,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
     /**
      * @param id must not be {@literal null}.
      * @return id of User
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -80,7 +80,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
      * @param password
      * @param email
      * @param id
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -91,7 +91,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
     /**
      * @param username
      * @return code
-     * @creator LongNT
+     * @creator LamNT
      * @day 15/09/2022
      */
     @Query(value = "select username from app_user where username = :username", nativeQuery = true)
@@ -100,7 +100,7 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
     /**
      * @param email
      * @return code
-     * @creator LongNT
+     * @creator LamNT
      * @day 15/09/2022
      */
     @Query(value = "select email from app_user where email = :email", nativeQuery = true)

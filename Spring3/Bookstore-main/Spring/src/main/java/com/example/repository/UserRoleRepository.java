@@ -20,7 +20,7 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
 
     /**
      * @param id function deleteUserRole
-     * @Creator HungNQ
+     * @Creator LamNT
      * @Date 12/09/2022
      */
     @Transactional
@@ -30,7 +30,7 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
 
     /**
      * @return list UserRole
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -40,7 +40,7 @@ public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
     /**
      * @param roleId
      * @param userId
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 

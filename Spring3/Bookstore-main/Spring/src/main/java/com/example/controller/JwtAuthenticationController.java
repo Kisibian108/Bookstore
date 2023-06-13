@@ -48,7 +48,7 @@ public class JwtAuthenticationController {
     }
 
     /**
-     * Created by: SangNH
+     * Created by: LamNT
      * Date created: 08/09/2022
      * Function: Expose a POST API /authenticate
      * @param  authenticationRequest

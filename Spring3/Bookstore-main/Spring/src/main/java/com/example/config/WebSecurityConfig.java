@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtRequestFilter jwtRequestFilter;
 
     /**
-     * Created by: SangNH
+     * Created by: LamNT
      * Date created: 08/09/2022
      * Function: configure AuthenticationManager so that it knows from where to load
      * @param  auth
@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * Created by: SangNH
+     * Created by: LamNT
      * Date created: 08/09/2022
      * Function: donation allows access to the link
      * @param  httpSecurity

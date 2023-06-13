@@ -16,7 +16,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
     private static final long serialVersionUID = -7858869558953243875L;
 
     /**
-     * Created by: SangNH
+     * Created by: LamNT
      * Date created: 08/09/2022
      * Function:  It rejects every unauthenticated request and send error code 401
      * @param  request, response, authException

@@ -16,7 +16,7 @@ public interface IUserService {
 
     /**
      * @return list User (test list)
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -24,7 +24,7 @@ public interface IUserService {
 
     /**
      * @param appUser
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -33,7 +33,7 @@ public interface IUserService {
     /**
      * @param id
      * @return User
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -41,7 +41,7 @@ public interface IUserService {
 
     /**
      * @param appUser
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
     void edit(AppUser appUser);
@@ -52,7 +52,7 @@ public interface IUserService {
     /**
      * @param username
      * @return
-     * @creator LongNT
+     * @creator LamNT
      * @day 15/09/2022
      */
     Boolean existsUsername(String username);
@@ -60,7 +60,7 @@ public interface IUserService {
     /**
      * @param email
      * @return
-     * @creator LongNT
+     * @creator LamNT
      * @day 15/09/2022
      */
     Boolean existsEmail(String email);

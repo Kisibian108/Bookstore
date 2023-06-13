@@ -25,7 +25,7 @@ public class UserService implements IUserService {
     private JavaMailSender javaMailSender;
 
     /**
-     * Create by SangNH
+     * Create by LamNT
      * Date: 08/09/2022
      * find list by name
      * @param name
@@ -58,7 +58,7 @@ public class UserService implements IUserService {
 
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, "UTF-8");
-        helper.setFrom("sangnguyenjp97@gmail.com","CODE GYM");
+        helper.setFrom("kisibian108@gmail.com","CODE GYM");
         helper.setTo(email);
         helper.setSubject(subject);
         mailContent = "<p sytle='color:red;'>Xin chào " + userName + " ,<p>" + "<p> Nhấn vào link sau để xác thực email của bạn:</p>" +
@@ -70,7 +70,7 @@ public class UserService implements IUserService {
 
     /**
      * @return List User (test list)
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -82,7 +82,7 @@ public class UserService implements IUserService {
 
     /**
      * @param appUser
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -94,7 +94,7 @@ public class UserService implements IUserService {
     /**
      * @param id
      * @return Employee
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -105,7 +105,7 @@ public class UserService implements IUserService {
 
     /**
      * @param appUser
-     * @creator LongNT
+     * @creator LamNT
      * @day 12/09/2022
      */
 
@@ -122,7 +122,7 @@ public class UserService implements IUserService {
 
     /**
      * @param username
-     * @creator LongNT
+     * @creator LamNT
      * @day 16/09/2022
      */
     @Override
@@ -132,7 +132,7 @@ public class UserService implements IUserService {
 
     /**
      * @param email
-     * @creator LongNT
+     * @creator LamNT
      * @day 16/09/2022
      */
     @Override
