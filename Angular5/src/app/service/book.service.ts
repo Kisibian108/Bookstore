@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Book} from "../model/book";
-import {Category} from "../model/category";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Book} from '../model/book';
+import {Category} from '../model/category';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -12,26 +12,66 @@ const API_URL = `${environment.apiUrl}`;
 })
 export class BookService {
 
-  constructor(private httpClient: HttpClient) {
-  }
-  createBook(book: Book): Observable<Book> {
-    return this.httpClient.post<Book>(API_URL + '/create', book);
+  constructor(private http: HttpClient) { }
+
+  findAll(page: number, nameSearch: string, size: number): Observable<Book[]> {
+    return this.http.get<Book[]>(API_URL + '/api/public/book/list?page=' + page + '&nameSearch=' + nameSearch + '&size=' + size);
   }
 
-  findById(id: number): Observable<Book> {
-    return this.httpClient.get<Book>(API_URL + '/list/' + id);
-  }
-
-  delete(id: number): Observable<Book> {
-    return this.httpClient.delete<Book>(`${API_URL}/${id}`);
-  }
-
-  getAllBook(page: number, name: string, size: number ) {
+  findAllByCategory(page: number, keyword: string, categoryId: number, size: number): Observable<Book[]> {
     // tslint:disable-next-line:max-line-length
-    return this.httpClient.get<any>(API_URL + '/page?page=' + page + '&nameSearch=' + name + '&size=' + size);
+    return this.http.get<Book[]>(API_URL + '/api/public/book/listByCategory?page=' + page + '&keyword=' + keyword + '&categoryId=' + categoryId + '&size=' + size);
   }
 
   findAllCategory(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(API_URL + '/category/list');
+    return this.http.get<Category[]>(API_URL + '/api/public/category/list');
+  }
+
+  findById(id: number): Observable<Book> {
+    return this.http.get<Book>(`${API_URL}/api/public/book/${id}`);
+  }
+
+  delete(id: number): Observable<Book> {
+    return this.http.delete<Book>(`${API_URL}/api/public/book/${id}`);
+  }
+
+  save(book): Observable<Book> {
+    return this.http.post<Book>(`${API_URL}/api/public/book/create`, book);
+  }
+
+  update(id: number, book: Book): Observable<Book> {
+    return this.http.put<Book>(`${API_URL}/api/public/book/update/${id}`, book);
+  }
+
+  getCarts() {
+    const cartJson = sessionStorage.getItem('cart');
+    if (cartJson) {
+      return JSON.parse(cartJson);
+    } else {
+      return [];
+    }
+  }
+
+  saveCarts(cartList: any) {
+    const cartJson = JSON.stringify(cartList);
+    sessionStorage.setItem('cart', cartJson);
+  }
+
+  getTotalCartQuantity(): number {
+    const cartList = this.getCarts();
+    let totalQuantity = 0;
+    cartList.forEach((item: any) => {
+      totalQuantity += item.quantity;
+    });
+    return totalQuantity;
+  }
+
+  getTotalCartPrice(): number {
+    const cartList = this.getCarts();
+    let totalPrice = 0;
+    cartList.forEach((item: any) => {
+      totalPrice += item.quantity * item.price;
+    });
+    return totalPrice;
   }
 }

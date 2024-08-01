@@ -22,6 +22,7 @@ export class BookComponent implements OnInit {
   pageSize = 8;
   itemCount = 0;
   quantity = 0;
+  isAdmin = false;
 
   constructor(private bookService: BookService,
               private cartService: CartService,
@@ -35,6 +36,10 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // const currentUser = JSON.parse(localStorage.getItem('ROLE_ADMIN'));
+    // console.log(currentUser);
+    // const roles = currentUser.userRoles;
+    // this.isAdmin = roles.includes('ROLE_ADMIN');
     this.getList();
   }
 

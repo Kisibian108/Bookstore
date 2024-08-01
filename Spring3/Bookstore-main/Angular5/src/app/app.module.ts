@@ -15,9 +15,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookCartComponent } from './book-cart/book-cart.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'book'},
+  {path: 'product', component: ProductComponent },
   {path: 'book', component: BookComponent },
   {path: 'book-create', component: BookCreateComponent },
   {path: 'book-edit/:id', component: BookEditComponent},
@@ -36,7 +38,8 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     BookDetailComponent,
-    BookCartComponent
+    BookCartComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

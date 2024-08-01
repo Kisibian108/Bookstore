@@ -1,3 +1,17 @@
+<div class="col-lg-4 col-6 text-left" style="margin-left: 49px; margin-bottom: 20px">
+  <form action="" [formGroup]="searchForm" (ngSubmit)="search()">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Tìm kiếm sách" name="name" formControlName="nameSearch" >
+      <div class="input-group-append">
+        <!--                            <span class="input-group-text bg-transparent text-primary">-->
+        <!--                                <i class="fa fa-search"></i>-->
+        <!--                            </span>-->
+        <button id="search" class="btn btn-outline-primary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
 <!-- Carousel Start -->
 <div class="container-fluid mb-3">
   <div class="row px-xl-5">
@@ -73,7 +87,6 @@
 </div>
 <!-- Carousel End -->
 
-
 <!-- Featured Start -->
 <div class="container-fluid pt-5">
   <div class="row px-xl-5 pb-3">
@@ -117,17 +130,18 @@
           <img class="img-fluid w-100" [src]="book.img"  alt="">
           <div class="product-action">
             <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+            <a class="btn btn-outline-dark btn-square" href="" [routerLink]="['/book-detail', book.id]"><i class="fa fa-eye"></i></a>
+            <a class="btn btn-outline-dark btn-square" href="" *ngIf="['ROLE_ADMIN'].indexOf(role)!==-1"
+               [routerLink]="['/book/edit', book.id]"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-outline-dark btn-square" href="" *ngIf="['ROLE_ADMIN'].indexOf(role)!==-1"><i class="fa fa-trash"></i></a>
           </div>
         </div>
         <div class="text-center py-4">
           <a class="h6 text-decoration-none text-truncate" href="">{{book.name}}</a>
           <div class="d-flex align-items-center justify-content-center mt-2">
-            <h5>${{book.discount}}</h5>
+            <h5>${{book.price}}</h5>
             <h6 class="text-muted ml-2">
-              <del>${{book.price}}</del>
+              <del>${{book.discount}}</del>
             </h6>
           </div>
           <div class="d-flex align-items-center justify-content-center mb-1">

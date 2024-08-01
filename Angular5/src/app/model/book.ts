@@ -14,5 +14,6 @@ export interface Book {
   discount?: number;
   rate?: number;
   star?: number;
+  content?: string;
   category?: Category;
 }

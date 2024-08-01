@@ -13,11 +13,12 @@ import {ToastrModule} from 'ngx-toastr';
 import {LoginComponent} from './security/login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'book'},
   {path: 'book', component: BookComponent },
+  {path: 'book-detail/:id', component: BookDetailComponent },
   {path: 'book-create', component: BookCreateComponent },
   {path: 'book-edit/:id', component: BookEditComponent},
   {path: 'login', component: LoginComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
     BookEditComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
