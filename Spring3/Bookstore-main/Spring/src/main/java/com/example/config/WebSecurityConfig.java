@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * @param  httpSecurity
      */
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
+    protected void  configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests().antMatchers("/product/**").permitAll()
                 .antMatchers("/api/public/**").permitAll()
