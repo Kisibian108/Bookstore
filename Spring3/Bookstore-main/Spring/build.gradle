@@ -13,7 +13,7 @@ repositories {
 }
 
 jar {
-    archiveBaseName.set('myapp')
+    archiveBaseName.set('Spring')
     archiveVersion.set('0.0.1-SNAPSHOT')
 }
 
